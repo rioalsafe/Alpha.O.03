@@ -59,4 +59,9 @@ public:
 	CListBox m_dol_log;
 	CListBox m_timer;
 	CListBox m_winner;
+	virtual BOOL PreTranslateMessage(MSG* pMsg);	//PreTranslateMessage() 메소드 재정의
+	virtual void OnOK();
+	virtual void OnCancel();
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
+	afx_msg void OnBnClickedCancel();
 };

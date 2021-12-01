@@ -17,7 +17,6 @@
 // CAlphaO02Dlg 대화 상자
 
 
-
 CAlphaO02Dlg::CAlphaO02Dlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_ALPHAO02_DIALOG, pParent)
 {
@@ -42,6 +41,8 @@ BEGIN_MESSAGE_MAP(CAlphaO02Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_PAUSE, &CAlphaO02Dlg::OnBnClickedPause)
 	ON_BN_CLICKED(IDC_LOAD, &CAlphaO02Dlg::OnBnClickedLoad)
 	ON_BN_CLICKED(IDC_RESET, &CAlphaO02Dlg::OnBnClickedReset)
+	ON_WM_SYSCOMMAND()
+	ON_BN_CLICKED(IDCANCEL, &CAlphaO02Dlg::OnBnClickedCancel)
 END_MESSAGE_MAP()
 
 
@@ -476,4 +477,63 @@ void CAlphaO02Dlg::OnBnClickedReset()
 	memset(dol, 0, sizeof(int) * 19 * 19);
 	Invalidate();
 	step = false;
+}
+
+BOOL CAlphaO02Dlg::PreTranslateMessage(MSG* pMsg)
+{
+	// TODO: Add your specialized code here and/or call the base class
+
+	if (WM_KEYDOWN == pMsg->message)
+	{
+		if (VK_RETURN == pMsg->wParam || VK_ESCAPE == pMsg->wParam)
+		{
+			return TRUE;
+		}
+	}
+
+	return CDialogEx::PreTranslateMessage(pMsg);
+}
+
+
+void CAlphaO02Dlg::OnOK()
+{
+	// TODO: Add your specialized code here and/or call the base class
+
+	// CDialogEx::OnOK();
+}
+
+
+void CAlphaO02Dlg::OnCancel()
+{
+	// TODO: Add your specialized code here and/or call the base class
+
+	//CDialogEx::OnCancel();
+}
+
+
+void CAlphaO02Dlg::OnSysCommand(UINT nID, LPARAM lParam)
+{
+	if (nID == SC_CLOSE)
+	{
+		//종료버튼 눌릴 시
+	}
+	else if (nID == SC_MAXIMIZE)
+	{
+		//최대화 버튼 눌릴 시
+	}
+	else if (nID == SC_MINIMIZE)
+	{
+		//최소화 버튼 눌릴 시
+	}
+	else if (nID == SC_RESTORE)
+	{
+		//복원 상황에서
+	}
+	CDialogEx::OnSysCommand(nID, lParam);
+}
+
+
+void CAlphaO02Dlg::OnBnClickedCancel()
+{
+	CDialogEx::OnCancel();
 }
