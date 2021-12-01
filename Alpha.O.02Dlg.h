@@ -42,7 +42,7 @@ protected:
 	// 생성된 메시지 맵 함수
 	virtual BOOL OnInitDialog(); //Dialog 초기화
 	void WhoIsWinner(int sum); //승리검정
-	void WhoIsLastWinner(void); //각승리 종합후 최종우승자
+	void WhoIsLastWinner(void); //최종승자 검정
 	void OnSave(void);	//로그 출력
 	void OnLoad(void);	//로그 불러오기
 	afx_msg void OnPaint();
@@ -52,12 +52,11 @@ public:
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnBnClickedSave();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
-	CListBox m_dol_log;
-	CListBox m_timer;
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
-	CListBox m_winner;
 	afx_msg void OnBnClickedPause();
 	afx_msg void OnBnClickedLoad();
 	afx_msg void OnBnClickedReset();
-	
+	CListBox m_dol_log;
+	CListBox m_timer;
+	CListBox m_winner;
 };

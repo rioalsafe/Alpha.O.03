@@ -303,6 +303,7 @@ void CAlphaO02Dlg::WhoIsWinner(int sum)
 	}
 }
 
+//최종승자 검정
 void CAlphaO02Dlg::WhoIsLastWinner()
 {
 	m_winner.ResetContent();
