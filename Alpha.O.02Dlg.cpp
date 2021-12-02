@@ -387,7 +387,7 @@ void CAlphaO02Dlg::OnLoad(void)
 
 	}
 
-
+	
 
 	//백승리수 흑승리수 찾기
 
